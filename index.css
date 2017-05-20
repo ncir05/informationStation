@@ -1,3 +1,6 @@
+html {
+  overflow-y: hidden;
+}
 .banner {
   background: teal;
   height: 150px;
@@ -12,14 +15,36 @@
 }
 #time {
   float:left;
+  margin-left: 50;
 }
 #greet {
   display: inline-block;
   text-align: center;
+  width: auto;
+  margin-left: 100;
 }
 #date {
   float: right;
   text-align: right;
+  margin-right: 50;
+}
+#weatherIcon {
+  margin: 0;
+}
+#listHeader1 {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: .75em;
+}
+#column1 {
+  margin: 0;
+}
+.weatherItem {
+  margin-top: 50;
+}
+.newsHeadline {
+  font-size: .35em;
+  margin: 5;
 }
 .column_head {
   text-align: center;
@@ -38,10 +63,16 @@
   float: left;
 }
 .tile2 {
-  background: tan;
+  background-image: url('pictures/newspaper.jpg');
   display: inline-block;
 }
 .tile3 {
   background: grey;
   float: right;
+}
+.calendar {
+  margin: 20;
+}
+ul {
+  list-style: none;
 }

@@ -2,10 +2,19 @@
 <head>
   <title></title>
   <link rel="stylesheet" type="text/css" href="index.css" />
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="js/jquery-3.2.1"></script>
+  <script src="js/jquery-3.2.1.js"></script>
   <script src="js/index.js"></script>
   <script src="js/weather.js"></script>
+  <script src="js/cnn.js"></script>
+  <script src="js/ap.js"></script>
+  <script src="js/bbc.js"></script>
+  <script src='js/fullcalendar-3.4.0/lib/jquery.min.js'></script>
+  <script src='js/fullcalendar-3.4.0/lib/moment.min.js'></script>
+  <script src='js/fullcalendar-3.4.0/fullcalendar.js'></script>
+  <link rel='stylesheet' href='js/fullcalendar-3.4.0/fullcalendar.css' />
+
   <!--
   Forecast.io API Key - f03fd58a03d74bb2965c7d04439d8687
   Forecast.io REST    - https://api.darksky.net/forecast/[key]/[latitude],[longitude]
@@ -26,70 +35,125 @@
   <!--<div id='main' class='main'>-->
     <div id='tile1' class='tile1'>
 
-      <h1 id='column1' class='column_head'>Left Test</h1>
+
       <div class="column_list">
-        <ul>List test
-          <li id='weatherTest0'>
+        <ul id='listHeader1' class='listHeader'><b style='font-size: 2em;'>Forecast</b>
+          <li id='weatherTest0' class="weatherItem">
             Item 1
           </li>
-          <li id='weatherTest1'>
+          <li id='weatherTest1' class="weatherItem">
             Item 2
           </li>
-          <li id='weatherTest2'>
+          <li id='weatherTest2' class="weatherItem">
             Item 3
           </li>
-          <li id='weatherTest3'>
-            Item 4
+          <li id='weatherTest3' class="weatherItem">
           </li>
         </ul>
+        <h1 id='column1' class='column_head'></h1>
+        <!--<button onclick="b()">Submit</button>-->
       </div>
     </div>
     <div id='tile2' class='tile2'>
-      <h1 class='column_head'>Middle Test</h1>
+      <h1 class='column_head'>News</h1>
       <div class="column_list">
-        <ul>List test
-          <li id='output'>
+        <ul><font  style='font-size: .75em;'>CNN</font>
+          <li id='cnn0' class='newsHeadline'>
             Item 1
           </li>
-          <li>
+          <li id='cnn1' class='newsHeadline'>
             Item 2
           </li>
-          <li>
+          <li id='cnn2' class='newsHeadline'>
             Item 3
           </li>
-          <li>
+          <li id='cnn3' class='newsHeadline'>
             Item 4
+          </li>
+          <li id='cnn4' class='newsHeadline'>
+            Item 5
+          </li>
+        </ul>
+        <ul><font  style='font-size: .75em;'>BBC</font>
+          <li id='bbc0' class='newsHeadline'>
+            Item 1
+          </li>
+          <li id='bbc1' class='newsHeadline'>
+            Item 2
+          </li>
+          <li id='bbc2' class='newsHeadline'>
+            Item 3
+          </li>
+          <li id='bbc3' class='newsHeadline'>
+            Item 4
+          </li>
+          <li id='bbc4' class='newsHeadline'>
+            Item 5
+          </li>
+        </ul>
+        <ul><font  style='font-size: .75em;'>AP</font>
+          <li id='ap0' class='newsHeadline'>
+            Item 1
+          </li>
+          <li id='ap1' class='newsHeadline'>
+            Item 2
+          </li>
+          <li id='ap2' class='newsHeadline'>
+            Item 3
+          </li>
+          <li id='ap3' class='newsHeadline'>
+            Item 4
+          </li>
+          <li id='ap4' class='newsHeadline'>
+            Item 5
           </li>
         </ul>
       </div>
     </div>
     <div id='tile3' class='tile3'>
-      <h1 class='column_head'>Right Test</h1>
-      <div class="column_list">
-        <ul>List test
-          <li>
-            Item 1
-          </li>
-          <li>
-            Item 2
-          </li>
-          <li>
-            Item 3
-          </li>
-          <li>
-            Item 4
-          </li>
-        </ul>
-        <p>
-          test
-        </p>
-      </div>
+      <div id="calendar" class="calendar"></div>
     </div>
-    <!--<script>var d = new Date(); document.getElementById("date").innerHTML = d;</script>-->
-  <!--</div>-->
 </body>
 <script language="javascript">renderWeather();</script>
-<script language="javascript">jQTest();</script>
+<script language="javascript">
+  $(document).ready(function() {
+    // page is now ready, initialize the calendar...
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+        theme: false,
+        header: {
+          left: 'title',
+          center: '',
+          right: 'prev,next'
+        },
+        buttonIcons: {
+          prev: 'left-double-arrow',
+          next: 'right-double-arrow'
+        },
+        height: 650,
+        fixedWeekCount: false,
+        editable: true,
 
+          events: [
+          {
+              title  : 'Chelsie\'s Birthday',
+              start  : '2017-05-27',
+              allDay : true
+          },
+          {
+              title  : 'Memorial Day Weekend',
+              start  : '2017-05-26',
+              end    : '2017-05-29'
+          },
+          {
+              title  : 'Mother\'s Day',
+              start  : '2017-05-14'
+          }
+        ],
+        eventColor: '#FF0000',
+        eventTextColor: '#0000FF',
+        eventBackgroundColor: '#00FF00'
+    })
+  });
 </script>
 </html>

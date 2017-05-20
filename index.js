@@ -1,5 +1,6 @@
 
 var i;
+var time1;
 
 
 function renderDate() {
@@ -8,13 +9,16 @@ function renderDate() {
   var day = d.getDate();
   var month = (d.getMonth() + 1);
   var year = d.getFullYear();
+  if(time1) {
+    clearTimeout(time1);
+  }
   if(day < 10) {
     day = "0" + day;
   }
-  var date = day + '/' + month + '/' + year;
+  var date = month + '/' + day + '/' + year;
   renderTime();
   document.getElementById("date").innerHTML = date;
-  setTimeout(renderTime, 500);
+  time1 = setTimeout(renderTime, 500);
 }
 
 function renderTime() {
@@ -24,11 +28,13 @@ function renderTime() {
   var seconds = t.getSeconds();
   var pm = false;
   var greeting = "Good Morning";
-
+  if(time1) {
+    clearTimeout(time1);
+  }
   if(hours > 0 && hours < 12) {
     greeting = "Good Morning";
   } else if(hours >= 12 && hours < 19) {
-    greeting = "Good Afternoon";
+    greeting = "Good ZZZ Afternoon";
   } else {
     greeting = "Good Evening";
   }
@@ -49,9 +55,9 @@ function renderTime() {
   }
 //  }
   if (hours < 10) {
-    hours = "0" + hours;
+    hours = "AA" + hours;
   } else {
-    hours = hours;
+    hours = "XX" + hours;
   }
   if (minutes < 10) {
     minutes = "0" + minutes;
@@ -72,5 +78,5 @@ function renderTime() {
   $("tile2").append("TEST TEXT");
   document.getElementById("time").innerHTML = time;
   document.getElementById("greet").innerHTML = greeting;
-  setTimeout(renderDate, 500);
+  time1 = setTimeout(renderDate, 500);
 }

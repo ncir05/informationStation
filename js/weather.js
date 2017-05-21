@@ -1,11 +1,11 @@
-//import DarkSkyApi from '/node_modules/dark-sky-api/src/dark-sky-api';
+
 var globalCounter = 0;
 var oneDayCounter;
 var callLimit;
 var summary;
 function renderWeather() {
-  //DarkSkyApi.apiKey = 'f03fd58a03d74bb2965c7d04439d8687';
-  //DarkSkyApi.latAndLong = '29.533185,-98.585747';
+  //DarkSkyApi.apiKey = /*Your DarkSkyApi Key*/;
+  //DarkSkyApi.latAndLong = /*Your latitude and longitude*/;
   //DarkSkyApi.loadCurrent()
   //  .then(result => console.log(result));
   var t = new Date();
@@ -23,21 +23,16 @@ function renderWeather() {
     oneDayCounter = 0;
   }
 
-  /*if((seconds == 1) && ((minutes % 15) == 0)) {
-    document.getElementById("weatherTest" + counter).innerHTML = testing;
-    counter++;
-    //alert("I'm working sorta");
-  }*/
   document.getElementById("column1").innerHTML = title;
   if(counter >= 4) {
     counter = 0;
   }
-  //getWeather();
   if(callLimit === undefined){
     callLimit = true;
   } else if (!callLimit && seconds == 30) {
     callLimit = true;
   }
+  //Call API's on load and every 30 minutes, but if the number of calls exceed 950 of the 1000 a day limit, stop
   if((globalCounter == 0 || ((seconds == 1) && ((minutes % 30) == 0))) && oneDayCounter < 950 && callLimit) {
     b();
     getCNN();
@@ -47,6 +42,7 @@ function renderWeather() {
     oneDayCounter++;
     callLimit = false;
   }
+  //Summary is the computer readable (stable, non-varying in wording) version of the weather status
   if(summary == 'clear-day') {
     image = "pictures/clear.png";
   } else if(summary == 'partly-cloudy-day' || summary == 'fog') {
@@ -83,10 +79,10 @@ function b(){
      wind,
      rain,
      */
-    var apiKey = 'f03fd58a03d74bb2965c7d04439d8687';
+    var apiKey = /*Your API Key*/;
     var url = 'https://api.forecast.io/forecast/';
-    var lati = 29.533185;
-    var longi = -98.585747;
+    var lati = /*Your latitude as an integer*/;
+    var longi = /*Your longitude as an integer*/;
     var data;
 
     $.getJSON(url + apiKey + "/" + lati + "," + longi + "?callback=?", function(data) {
@@ -97,7 +93,7 @@ function b(){
       var i = 0;
       var mayRain = false;
       var rain = 0.0001;
-      //precipProbability
+      //precipProbability -- Still not working properly. Should display chance of rain as a percentage
       for(r in data.hourly.data) {
         if(data.hourly.data[i].precipProbability > 0.0001) {
           if(data.hourly.data[i].precipProbability > rain) {

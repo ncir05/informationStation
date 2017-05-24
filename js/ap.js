@@ -1,8 +1,8 @@
 //newsapi.org
-//Key - bfd8e94bf24a4cb1913e5901ae61c46d
-//https://newsapi.org/v1/articles?source=associated-press&sortBy=top&apiKey=bfd8e94bf24a4cb1913e5901ae61c46d
+//Key - 21e7be9b29be4a4ea22154548bea123b
+//https://newsapi.org/v1/articles?source=associated-press&sortBy=top&apiKey=21e7be9b29be4a4ea22154548bea123b
 var urlAP = 'https://newsapi.org/v1/articles?source=associated-press&sortBy=top&apiKey=';
-var apiKey = /*Your API Key*/;
+var apiKey = 'Your API Key';
 function getAP() {
   $.getJSON(urlAP + apiKey, function(data) {
     var i = 0;
@@ -11,6 +11,6 @@ function getAP() {
       $('#ap'+ i).html(article);
       i++;
     }
-    console.log(data);
+    //console.log(data);
   });
 }

@@ -1,4 +1,12 @@
 <html>
+<!-- Possible tiles:
+      Traffic
+      Stocks
+      Account Balances
+      Tweets
+
+    May incorporate Alexa support in future
+ -->
 <head>
   <title></title>
   <link rel="stylesheet" type="text/css" href="index.css" />
@@ -10,44 +18,47 @@
   <script src="js/cnn.js"></script>
   <script src="js/ap.js"></script>
   <script src="js/bbc.js"></script>
+  <script src="js/map.js"></script>
   <script src='js/fullcalendar-3.4.0/lib/jquery.min.js'></script>
   <script src='js/fullcalendar-3.4.0/lib/moment.min.js'></script>
   <script src='js/fullcalendar-3.4.0/fullcalendar.js'></script>
   <link rel='stylesheet' href='js/fullcalendar-3.4.0/fullcalendar.css' />
 
 </head>
+
 <body onload="renderDate();">
   <div id='banner' class='banner'>
     <p id='time'>Time</p>
     <p id='greet'>Greeting</p>
     <p id='date'>Date</p>
   </div>
-  <!--<div id='main' class='main'>-->
-    <div id='tile1' class='tile1'>
-
-
-      <div class="column_list">
-        <ul id='listHeader1' class='listHeader'><b style='font-size: 2em;'>Forecast</b>
-          <li id='weatherTest0' class="weatherItem">
-            Item 1
-          </li>
-          <li id='weatherTest1' class="weatherItem">
-            Item 2
-          </li>
-          <li id='weatherTest2' class="weatherItem">
-            Item 3
-          </li>
-          <li id='weatherTest3' class="weatherItem">
-          </li>
-        </ul>
-        <h1 id='column1' class='column_head'></h1>
-        <!--<button onclick="b()">Submit</button>-->
-      </div>
+  <div id='tile1' class='tile1'>
+    <div id='weatherSection' class="column_list">
+      <ul id='listHeader1' class='listHeader'><b style='font-size: 2em;'>Forecast</b>
+        <li id='weatherTest0' class="weatherItem">
+          Item 1
+        </li>
+        <li id='highLow' class='weatherItem' style="font-size: .5em; padding: 0; margin: 0;">
+          High/Low
+        </li>
+        <li id='weatherTest1' class="weatherItem">
+          Item 2
+        </li>
+        <li id='weatherTest2' class="weatherItem">
+          Item 3
+        </li>
+        <li id='weatherTest3' class="weatherItem">
+        </li>
+      </ul>
+      <h1 id='column1' class='column_head'></h1>
     </div>
-    <div id='tile2' class='tile2'>
+  </div>
+  <div id='tile2' class='tile2'>
+    <div id='newsSection'>
       <h1 class='column_head'>News</h1>
       <div class="column_list">
-        <ul><font  style='font-size: .75em;'>CNN</font>
+        <ul>
+          <font style='font-size: .75em;'>CNN</font>
           <li id='cnn0' class='newsHeadline'>
             Item 1
           </li>
@@ -64,7 +75,8 @@
             Item 5
           </li>
         </ul>
-        <ul><font  style='font-size: .75em;'>BBC</font>
+        <ul>
+          <font style='font-size: .75em;'>BBC</font>
           <li id='bbc0' class='newsHeadline'>
             Item 1
           </li>
@@ -81,7 +93,8 @@
             Item 5
           </li>
         </ul>
-        <ul><font  style='font-size: .75em;'>AP</font>
+        <ul>
+          <font style='font-size: .75em;'>AP</font>
           <li id='ap0' class='newsHeadline'>
             Item 1
           </li>
@@ -100,50 +113,54 @@
         </ul>
       </div>
     </div>
-    <div id='tile3' class='tile3'>
-      <div id="calendar" class="calendar"></div>
-    </div>
+  </div>
+  <div id='tile3' class='tile3'>
+    <div id="calendar" class="calendar"></div>
+  </div>
 </body>
-<script language="javascript">renderWeather();</script>
+<script language="javascript">
+  renderWeather();
+</script>
+<!-- calendar -->
 <script language="javascript">
   $(document).ready(function() {
     // page is now ready, initialize the calendar...
     $('#calendar').fullCalendar({
-        // put your options and callbacks here
-        theme: false,
-        header: {
-          left: 'title',
-          center: '',
-          right: 'prev,next'
-        },
-        buttonIcons: {
-          prev: 'left-double-arrow',
-          next: 'right-double-arrow'
-        },
-        height: 650,
-        fixedWeekCount: false,
-        editable: true,
+      // put your options and callbacks here
+      theme: false,
+      header: {
+        left: 'title',
+        center: '',
+        right: 'prev,next'
+      },
+      buttonIcons: {
+        prev: 'left-double-arrow',
+        next: 'right-double-arrow'
+      },
+      height: 650,
+      fixedWeekCount: false,
+      editable: true,
 
-          events: [
-          {
-              title  : 'Your Event',
-              start  : '2017-06-20',
-              allDay : true
-          },
-          {
-              title  : 'Memorial Day Weekend',
-              start  : '2017-05-26',
-              end    : '2017-05-29'
-          },
-          {
-              title  : 'Mother\'s Day',
-              start  : '2017-05-14'
-          }
-        ],
-        eventColor: '#FF0000',
-        eventTextColor: '#0000FF',
-        eventBackgroundColor: '#00FF00'
+      events: [{
+          title: 'Your Event',
+          start: '2017-06-01',
+          allDay: true
+        },
+        {
+          title: 'Memorial Day Weekend',
+          start: '2017-05-26',
+          end: '2017-05-29'
+        },
+        {
+          title: 'Mother\'s Day',
+          start: '2017-05-14'
+        }
+      ],
+      eventColor: '#FF0000',
+      eventTextColor: '#0000FF',
+      eventBackgroundColor: '#00FF00'
     })
   });
 </script>
+
 </html>

@@ -4,8 +4,8 @@ var oneDayCounter;
 var callLimit;
 var summary;
 function renderWeather() {
-  //DarkSkyApi.apiKey = /*Your DarkSkyApi Key*/;
-  //DarkSkyApi.latAndLong = /*Your latitude and longitude*/;
+  //DarkSkyApi.apiKey = 'Your API Key';
+  //DarkSkyApi.latAndLong = 'Your latitude and longitude';
   //DarkSkyApi.loadCurrent()
   //  .then(result => console.log(result));
   var t = new Date();
@@ -79,17 +79,19 @@ function b(){
      wind,
      rain,
      */
-    var apiKey = /*Your API Key*/;
+    var apiKey = 'Your API Key';
     var url = 'https://api.forecast.io/forecast/';
-    var lati = /*Your latitude as an integer*/;
-    var longi = /*Your longitude as an integer*/;
+    var lati = 'Your latitude';
+    var longi = 'Your longitude';
     var data;
 
     $.getJSON(url + apiKey + "/" + lati + "," + longi + "?callback=?", function(data) {
-      //console.log(data);
+      console.log(data);
       summary = data. currently.icon;
       $('#weatherTest0').html(data.currently.temperature + "&deg;");
-      $('#weatherTest1').html(data.currently.summary);
+      $('#highLow').html("<font color='red'>" + data.daily.data[0].temperatureMax + "&deg; </font>/ " + "<font color='blue'>" +  + data.daily.data[0].temperatureMin + "&deg; </font>");
+      $('#weatherTest1').html(data.hourly.data[3].temperature + "&deg;");
+      $('#weatherTest2').html(data.currently.summary);
       var i = 0;
       var mayRain = false;
       var rain = 0.0001;
@@ -106,7 +108,7 @@ function b(){
         //rain = rain * 100;
 
       }
-      $('#weatherTest2').html("Rain: " + parseInt(rain) + "%");
+      $('#weatherTest3').html("Rain: " + parseInt(rain) + "%");
     });
 }
 

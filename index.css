@@ -2,10 +2,14 @@ html {
   overflow-y: hidden;
 }
 
+body {
+  margin: 0;
+}
+
 .banner {
   background: teal;
   height: 150px;
-  padding-bottom: 0px;
+  padding-bottom: 0;
   margin: 0;
   font-size: 2em;
 }
@@ -78,7 +82,8 @@ html {
 }
 
 .tile2 {
-  background-image: url('pictures/newspaper.jpg');
+  /*background-image: url('pictures/newspaper.jpg');*/
+  background-color: tan;
   display: inline-block;
 }
 

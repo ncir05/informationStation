@@ -5,10 +5,11 @@
       Account Balances
       Tweets
 
-    May incorporate Alexa support in future
  -->
+
 <head>
   <title></title>
+  <script src="js/apiKeys.js"></script>
   <link rel="stylesheet" type="text/css" href="index.css" />
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -23,7 +24,16 @@
   <script src='js/fullcalendar-3.4.0/lib/moment.min.js'></script>
   <script src='js/fullcalendar-3.4.0/fullcalendar.js'></script>
   <link rel='stylesheet' href='js/fullcalendar-3.4.0/fullcalendar.css' />
+  <!--
+  Forecast.io API Key - 1393e36a6f0bf4724228852849b49ad9
+  Forecast.io REST    - https://api.darksky.net/forecast/[key]/[latitude],[longitude]
+  https://api.darksky.net/forecast/1393e36a6f0bf4724228852849b49ad9/29.533185,-98.585747
 
+  Use this on Pi for browser support:
+  sudo apt-get update
+  sudo apt-get dist-upgrade
+  sudo apt-get install epiphany-browser
+  -->
 </head>
 
 <body onload="renderDate();">
@@ -32,6 +42,7 @@
     <p id='greet'>Greeting</p>
     <p id='date'>Date</p>
   </div>
+  <!-- Banner -->
   <div id='tile1' class='tile1'>
     <div id='weatherSection' class="column_list">
       <ul id='listHeader1' class='listHeader'><b style='font-size: 2em;'>Forecast</b>
@@ -53,11 +64,14 @@
       <h1 id='column1' class='column_head'></h1>
     </div>
   </div>
+  <!-- Weather -->
   <div id='tile2' class='tile2'>
+    <!-- News -->
     <div id='newsSection'>
       <h1 class='column_head'>News</h1>
       <div class="column_list">
         <ul>
+          <!-- CNN -->
           <font style='font-size: .75em;'>CNN</font>
           <li id='cnn0' class='newsHeadline'>
             Item 1
@@ -68,14 +82,15 @@
           <li id='cnn2' class='newsHeadline'>
             Item 3
           </li>
-          <li id='cnn3' class='newsHeadline'>
+          <!-- <li id='cnn3' class='newsHeadline'>
             Item 4
           </li>
           <li id='cnn4' class='newsHeadline'>
             Item 5
-          </li>
+          </li> -->
         </ul>
         <ul>
+          <!-- BBC -->
           <font style='font-size: .75em;'>BBC</font>
           <li id='bbc0' class='newsHeadline'>
             Item 1
@@ -86,14 +101,15 @@
           <li id='bbc2' class='newsHeadline'>
             Item 3
           </li>
-          <li id='bbc3' class='newsHeadline'>
+          <!-- <li id='bbc3' class='newsHeadline'>
             Item 4
           </li>
           <li id='bbc4' class='newsHeadline'>
             Item 5
-          </li>
+          </li> -->
         </ul>
         <ul>
+          <!-- AP -->
           <font style='font-size: .75em;'>AP</font>
           <li id='ap0' class='newsHeadline'>
             Item 1
@@ -104,12 +120,12 @@
           <li id='ap2' class='newsHeadline'>
             Item 3
           </li>
-          <li id='ap3' class='newsHeadline'>
+          <!-- <li id='ap3' class='newsHeadline'>
             Item 4
           </li>
           <li id='ap4' class='newsHeadline'>
             Item 5
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -121,46 +137,6 @@
 <script language="javascript">
   renderWeather();
 </script>
-<!-- calendar -->
-<script language="javascript">
-  $(document).ready(function() {
-    // page is now ready, initialize the calendar...
-    $('#calendar').fullCalendar({
-      // put your options and callbacks here
-      theme: false,
-      header: {
-        left: 'title',
-        center: '',
-        right: 'prev,next'
-      },
-      buttonIcons: {
-        prev: 'left-double-arrow',
-        next: 'right-double-arrow'
-      },
-      height: 650,
-      fixedWeekCount: false,
-      editable: true,
-
-      events: [{
-          title: 'Your Event',
-          start: '2017-06-01',
-          allDay: true
-        },
-        {
-          title: 'Memorial Day Weekend',
-          start: '2017-05-26',
-          end: '2017-05-29'
-        },
-        {
-          title: 'Mother\'s Day',
-          start: '2017-05-14'
-        }
-      ],
-      eventColor: '#FF0000',
-      eventTextColor: '#0000FF',
-      eventBackgroundColor: '#00FF00'
-    })
-  });
-</script>
+<!-- renderWeather -->
 
 </html>

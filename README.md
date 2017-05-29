@@ -18,11 +18,11 @@ WEATHER:
 Be sure to include the latitude and longitude for your location to get the most
 accurate weather information. I used the DarkSkyApi from darksky.net which allows
 up to 1000 free calls per day. The current settings only use 48 so there's a
-little padding in case you have to refresh a lot (it's a new call eevry time you
+little padding in case you have to refresh a lot (it's a new call every time you
 refresh the page). I've also included some pictures I found and altered a little.
 I have no ownership of them. They're only there to give you an idea of what yours
 can look like. Also, I don't have a picture for fog, can't find one that matches
-the theme. 
+the theme.
 
 NEWS:
 I used newsapi.org to gather current headlines from CNN, BBC and the
